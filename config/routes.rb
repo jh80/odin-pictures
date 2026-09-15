@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root to: "static_page#new"
   get "static_page/new"
   get "static_page/create"
   get "static_page/show"
