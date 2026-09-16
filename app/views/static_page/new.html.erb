@@ -1,2 +1,10 @@
-<h1>StaticPage#new</h1>
-<p>Find me in app/views/static_page/new.html.erb</p>
+<h1>Pick a Collection</h1>
+<p>Privide the id of the Pexel collection you would like to view</p>
+
+<form action="<%= static_page_show_path %>"  method="get" accept-charset="UTF-8">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" >
+    <label for="collection_id">What is the ID of the collection you are looking for?</label>
+    <input type="text" name="collection_id" id="collection_id">
+    <input type="submit" name="commit" value="Show Collection">
+</form>
+
