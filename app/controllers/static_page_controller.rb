@@ -9,7 +9,7 @@ class StaticPageController < ApplicationController
 
   def show
     client = Client.new
-    @response = client.collection(collection_id_params)
+    @response = client.collection(collection_id_params, "photos")
   end
 
   private
