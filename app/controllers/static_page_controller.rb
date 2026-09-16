@@ -17,5 +17,4 @@ class StaticPageController < ApplicationController
   def collection_id_params
     params.expect(:collection_id)
   end
-
 end
