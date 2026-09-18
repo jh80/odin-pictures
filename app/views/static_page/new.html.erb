@@ -3,6 +3,7 @@
 
 <form action="<%= static_page_show_path %>"  method="get" accept-charset="UTF-8">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" >
+    <input type="hidden" name="page" value="1">
     <label for="collection_id">What is the ID of the collection you are looking for?</label>
     <input type="text" name="collection_id" id="collection_id">
     <input type="submit" name="commit" value="Show Collection">
