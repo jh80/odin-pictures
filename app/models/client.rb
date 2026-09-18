@@ -1,5 +1,7 @@
+require "httparty"
+
 class Client
-    #include HTTParty
+  include HTTParty
 
   def initialize
   end
