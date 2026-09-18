@@ -17,7 +17,12 @@ class StaticPageController < ApplicationController
 
   private
 
-  def collection_id_params
-    params.expect(:collection_id)
+  def validated_parse(json_response)
+    if json_response.successful?
+      data =  JSON.parse(json_response, symbolize_names: true)
+    else
+      puts "Error: #{response.code}"
+    end
+  end
   end
 end
