@@ -9,7 +9,10 @@ class StaticPageController < ApplicationController
 
   def show
     client = Client.new
-    @response = client.collection(collection_id_params, "photos")
+    collection_ps = collection_params
+    collection_id = collection_ps[:collection_id]
+    page = collection_ps[:page] ? collection_ps[:page] : 1
+    @response = client.collection(collection_id, page)
   end
 
   private
