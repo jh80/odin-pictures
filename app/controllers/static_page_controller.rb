@@ -24,5 +24,8 @@ class StaticPageController < ApplicationController
       puts "Error: #{response.code}"
     end
   end
+
+  def collection_params
+    params.permit(:collection_id, :page)
   end
 end
