@@ -11,7 +11,7 @@
     <form action="<%=static_page_show_path%>">
         <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" >
         <input type="hidden" name="collection_id" value="<%= @response[:id] %>">
-        <%# <input type="hidden" name="page" value="<%= @response[:page] - 1 %>">
+        <input type="hidden" name="increment_page" value="<%= @response[:prev_page] %>">
         <input type="submit" name="commit" value="prev">
     </form>
 <% end %> 
