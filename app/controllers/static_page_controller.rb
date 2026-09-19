@@ -8,14 +8,12 @@ class StaticPageController < ApplicationController
   end
 
   def show
-    client = Client.new
+    pexels_client = PexelsClient.new
     collection_ps = collection_params
     if collection_ps[:increment_page]
-      @response = client.move_page(collection_ps[:increment_page])
+      @response = pexels_client.fetch_interated_page_of_collection(collection_ps[:increment_page])
     else
-      collection_id = collection_ps[:collection_id]
-      page = collection_ps[:page] ? collection_ps[:page] : 1
-      @response = client.collection(collection_id, page)
+      @response = pexels_client.fetch_collection(collection_ps[:collection_id])
     end
   end
 
