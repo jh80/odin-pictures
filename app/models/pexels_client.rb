@@ -12,6 +12,11 @@ class PexelsClient
     source = "/v1/collections/" + collection_id
     options = { type: "photos" }.merge(@options)
     json_response = self.class.get(source, options)
+    parse_if_success(json_response)
+  end
+  private_methods
+
+  def parse_if_success(json_response)
     if json_response.code == 200
       JSON.parse(json_response.parsed_response, symbolize_names: true)
     else
