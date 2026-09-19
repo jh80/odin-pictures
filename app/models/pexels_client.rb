@@ -14,7 +14,13 @@ class PexelsClient
     json_response = self.class.get(source, options)
     parse_if_success(json_response)
   end
-  private_methods
+
+  def fetch_interated_page_of_collection(iterated_page_url)
+    json_response = self.class.get(remove_v1(iterated_page_url), @options)
+    parse_if_success(json_response)
+  end
+
+  private
 
   def parse_if_success(json_response)
     if json_response.code == 200
@@ -23,5 +29,9 @@ class PexelsClient
       # Make this more official, call or catch an error?
       "Error: #{response.code}"
     end
+  end
+
+  def remove_v1(url)
+    url.sub(/\/v1/, "")
   end
 end
