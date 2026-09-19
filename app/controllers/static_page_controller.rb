@@ -19,14 +19,6 @@ class StaticPageController < ApplicationController
 
   private
 
-  def validated_parse(json_response)
-    if json_response.successful?
-      data =  JSON.parse(json_response, symbolize_names: true)
-    else
-      puts "Error: #{response.code}"
-    end
-  end
-
   def collection_params
     params.permit(:collection_id, :page, :increment_page)
   end
