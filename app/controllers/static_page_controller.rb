@@ -20,6 +20,6 @@ class StaticPageController < ApplicationController
   private
 
   def collection_params
-    params.permit(:collection_id, :page, :increment_page)
+    params.permit(:collection_id, :increment_page)
   end
 end
