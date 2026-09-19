@@ -5,15 +5,15 @@ class PexelsClient
   base_uri "https://api.pexels.com"
 
   def initialize
-    @options = { headers: { "Authorization" => ENV["pexels_api_key"], "Accept" => "application/json" } }
+    @options = { format: :plain, headers: { "Authorization" => ENV["pexels_api_key"], "Accept" => "application/json" } }
   end
 
   def fetch_collection(collection_id)
     source = "/v1/collections/" + collection_id
     options = { type: "photos" }.merge(@options)
-    response = self.class.get(source, options)
-    if response.success?
-      response.parsed_response
+    json_response = self.class.get(source, options)
+    if json_response.code == 200
+      JSON.parse(json_response.parsed_response, symbolize_names: true)
     else
       # Make this more official, call or catch an error?
       "Error: #{response.code}"
