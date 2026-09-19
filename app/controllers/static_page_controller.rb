@@ -1,5 +1,3 @@
-require "./app/models/client.rb"
-
 class StaticPageController < ApplicationController
   def new
   end
