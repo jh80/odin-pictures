@@ -1,7 +1,3 @@
-
-
-<p><%= @response%></p>
-
 <h1>The collection of <%= @response[:id] %> </h1>
 <% @response[:media].each do |media| %>
     <img src="<%= media[:src][:medium]%>" alt="<%=media[:alt]%> ">
